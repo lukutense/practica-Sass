@@ -1,0 +1,32 @@
+@use 'mixinsfunc';
+
+@mixin arreglar-imagen {
+    background: {
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+    };
+}
+
+.hero{
+
+    &-container{
+        height: calc(100vh - 70px);
+        background-image: linear-gradient(#0000005c, #0000006a), url(../img/imagen.jpg);
+        @include mixinsfunc.crear-flexbox(center);
+        @include arreglar-imagen;
+    }
+
+    &-texts{
+        color: #fff;
+    }
+
+    &-title {
+        font-size: mixinsfunc.pixeles-rem(40);
+        margin-bottom: mixinsfunc.pixeles-rem(10);
+    }
+
+    &-parrafo{
+        font-size: mixinsfunc.pixeles-rem(20);
+    }
+}

@@ -1,0 +1,28 @@
+.circle{
+    width: 90px;
+    height: 90px;
+    background-color: #000;
+    border-radius: 50%;
+    margin: 0.5rem;
+
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@for $iterador from 1 through 5 {
+    .circle-#{$iterador}{
+        animation-name: desplazamiento#{$iterador};
+    
+
+        @keyframes desplazamiento#{$iterador} {
+            100%{
+                transform: translateX(50% * $iterador);
+            }
+        }
+
+        @if $iterador == 5{
+            animation-direction: alternate-reverse;
+        }
+    }
+}
